@@ -136,6 +136,34 @@ The trained YoloV5m model achieves:
 - **mAP50**: ~0.65 (at IoU=0.5)
 - **mAP50-95**: ~0.44 (IoU=0.50 to 0.95)
 
+## Visualizations & Results
+
+The notebook generates comprehensive visualizations of the training and detection results:
+
+### Training Metrics - Loss & mAP Curves
+![YOLOv5 Training Metrics](https://imgur.com/a/training-metrics)
+
+**Training Loss vs Epochs**: Shows the decrease in box loss during training, indicating model convergence
+- **Validation Loss vs Epochs**: Demonstrates validation loss trends throughout training
+- **mAP@0.5 vs Epochs**: Mean Average Precision at IoU threshold of 0.5, showing gradual improvement
+- **mAP@0.5:0.95 vs Epochs**: Stricter mAP metric (IoU 0.50 to 0.95), indicating model performance across multiple IoU thresholds
+
+### Detection Results on Test Set
+![YOLOv5 Detection Results](https://imgur.com/a/detection-results)
+
+Sample detections on Pascal VOC 2012 dataset including:
+- **Motorbikes & Bicycles**: Green bounding boxes with confidence scores
+- **Person Detection**: Multiple person instances with high confidence
+- **Animal Detection**: Cats, dogs, horses, birds detected
+- **Vehicle Detection**: Cars, buses, trains identified
+- **Household Items**: Sofas, dining tables, TVs detected
+
+### Performance Analysis
+The notebook also generates:
+- **Confidence Distribution**: Histogram showing prediction confidence scores
+- **Class Distribution**: Bar chart of detected object classes distribution
+- **Inference Speed Analysis**: Real-time performance metrics showing FPS and inference time
+
 ## Future Improvements
 
 - [ ] Implement Faster-RCNN model
