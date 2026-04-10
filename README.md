@@ -141,28 +141,52 @@ The trained YoloV5m model achieves:
 The notebook generates comprehensive visualizations of the training and detection results:
 
 ### Training Metrics - Loss & mAP Curves
-![YOLOv5 Training Metrics](https://imgur.com/a/training-metrics)
 
-**Training Loss vs Epochs**: Shows the decrease in box loss during training, indicating model convergence
-- **Validation Loss vs Epochs**: Demonstrates validation loss trends throughout training
-- **mAP@0.5 vs Epochs**: Mean Average Precision at IoU threshold of 0.5, showing gradual improvement
-- **mAP@0.5:0.95 vs Epochs**: Stricter mAP metric (IoU 0.50 to 0.95), indicating model performance across multiple IoU thresholds
+This visualization displays four critical training metrics:
+
+#### 1. Training Loss vs Epochs (Blue Curve)
+- Shows steady decrease in box loss from ~0.0095 to ~0.005 over 100 epochs
+- Demonstrates model convergence and effective learning progression
+- Smooth curve indicates stable training without oscillations
+
+#### 2. Validation Loss vs Epochs (Red Curve)
+- Validation loss decreases from ~0.011 to ~0.0055 over training
+- Tracks validation performance, ensuring model generalizes well
+- Similar trend to training loss indicates good model fit without overfitting
+
+#### 3. mAP@0.5 vs Epochs (Green Curve)
+- Mean Average Precision at IoU=0.5 threshold
+- Improves from ~0.40 to ~0.75 across epochs
+- Shows gradual improvement in object detection accuracy at standard IoU threshold
+
+#### 4. mAP@0.5:0.95 vs Epochs (Orange Curve)
+- Stricter mAP metric averaging across IoU thresholds (0.5 to 0.95)
+- Increases from ~0.25 to ~0.60 over training period
+- Indicates strong performance across multiple IoU thresholds, essential for real-world applications
 
 ### Detection Results on Test Set
-![YOLOv5 Detection Results](https://imgur.com/a/detection-results)
 
-Sample detections on Pascal VOC 2012 dataset including:
-- **Motorbikes & Bicycles**: Green bounding boxes with confidence scores
-- **Person Detection**: Multiple person instances with high confidence
-- **Animal Detection**: Cats, dogs, horses, birds detected
-- **Vehicle Detection**: Cars, buses, trains identified
-- **Household Items**: Sofas, dining tables, TVs detected
+Sample detections demonstrating YOLOv5's capability on Pascal VOC 2012 dataset:
 
-### Performance Analysis
+- **Motorbikes**: Detected with green bounding boxes and high confidence scores (0.6+)
+- **Bicycles**: Multiple instances correctly identified with colored bounding boxes
+- **Person Detection**: Individuals detected with cyan/blue boxes showing 0.83-0.95 confidence
+- **Animal Detection**: Cats, dogs, horses, and birds detected accurately
+- **Vehicle Detection**: Cars, buses, and trains identified with class labels and confidence
+- **Household Items**: Sofas, dining tables, monitors detected in indoor scenes
+- **Street Scenes**: Complex scenes with multiple objects detected simultaneously
+
+Each detection includes:
+- **Color-coded bounding box**: Different colors for different object classes
+- **Class label**: Name of the detected object
+- **Confidence score**: Probability of detection accuracy (0.0-1.0)
+
+### Additional Performance Visualizations
+
 The notebook also generates:
-- **Confidence Distribution**: Histogram showing prediction confidence scores
-- **Class Distribution**: Bar chart of detected object classes distribution
-- **Inference Speed Analysis**: Real-time performance metrics showing FPS and inference time
+- **Confidence Distribution**: Histogram showing prediction confidence scores distribution
+- **Class Distribution**: Bar chart of detected object classes showing frequency of detections
+- **Inference Speed Analysis**: Real-time performance metrics including average inference time and FPS
 
 ## Future Improvements
 
