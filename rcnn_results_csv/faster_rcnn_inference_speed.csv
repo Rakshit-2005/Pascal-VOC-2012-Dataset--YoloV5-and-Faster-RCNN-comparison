@@ -1,0 +1,2 @@
+model,avg_inference_ms,std_inference_ms,avg_fps,num_batches_tested
+Faster R-CNN (ResNet-50 + FPN),155.3247,21.3388,6.4381,50

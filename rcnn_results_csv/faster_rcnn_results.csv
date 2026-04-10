@@ -1,0 +1,2 @@
+model,num_epochs,final_train_loss,best_train_loss,mAP@0.5,mAP@0.5:0.95,avg_inference_ms,avg_fps,total_detections,avg_confidence,classes_detected,confidence_threshold
+Faster R-CNN (ResNet-50 + FPN),10,0.156,0.156,0.0,0.0,155.3247,6.4381,2147,0.8854,17,0.5
