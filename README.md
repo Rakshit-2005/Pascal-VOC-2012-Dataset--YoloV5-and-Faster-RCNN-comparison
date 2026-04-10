@@ -142,44 +142,95 @@ The notebook generates comprehensive visualizations of the training and detectio
 
 ### Training Metrics - Loss & mAP Curves
 
-This visualization displays four critical training metrics:
+![YOLOv5 Training Metrics - Loss & mAP Curves](images/training_metrics_curves.png)
 
-#### 1. Training Loss vs Epochs (Blue Curve)
+This visualization displays four critical training metrics over 100 epochs:
+
+#### 1. Training Loss vs Epochs (Blue Curve - Top Left)
 - Shows steady decrease in box loss from ~0.0095 to ~0.005 over 100 epochs
 - Demonstrates model convergence and effective learning progression
 - Smooth curve indicates stable training without oscillations
+- Sharp initial drop followed by gradual refinement
 
-#### 2. Validation Loss vs Epochs (Red Curve)
+#### 2. Validation Loss vs Epochs (Red Curve - Top Right)
 - Validation loss decreases from ~0.011 to ~0.0055 over training
 - Tracks validation performance, ensuring model generalizes well
 - Similar trend to training loss indicates good model fit without overfitting
+- Stabilizes around epoch 60 onwards
 
-#### 3. mAP@0.5 vs Epochs (Green Curve)
+#### 3. mAP@0.5 vs Epochs (Green Curve - Bottom Left)
 - Mean Average Precision at IoU=0.5 threshold
 - Improves from ~0.40 to ~0.75 across epochs
-- Shows gradual improvement in object detection accuracy at standard IoU threshold
+- Shows rapid improvement in first 20 epochs, then gradual refinement
+- Plateaus around 0.75 by epoch 60, indicating convergence
+- Excellent performance for standard object detection tasks
 
-#### 4. mAP@0.5:0.95 vs Epochs (Orange Curve)
+#### 4. mAP@0.5:0.95 vs Epochs (Orange Curve - Bottom Right)
 - Stricter mAP metric averaging across IoU thresholds (0.5 to 0.95)
 - Increases from ~0.25 to ~0.60 over training period
-- Indicates strong performance across multiple IoU thresholds, essential for real-world applications
+- Indicates strong performance across multiple IoU thresholds
+- Essential metric for real-world applications requiring high precision
+- Shows consistent improvement throughout training
 
 ### Detection Results on Test Set
 
-Sample detections demonstrating YOLOv5's capability on Pascal VOC 2012 dataset:
+![YOLOv5 Detection Results - Pascal VOC 2012](images/detection_results.png)
 
-- **Motorbikes**: Detected with green bounding boxes and high confidence scores (0.6+)
-- **Bicycles**: Multiple instances correctly identified with colored bounding boxes
-- **Person Detection**: Individuals detected with cyan/blue boxes showing 0.83-0.95 confidence
-- **Animal Detection**: Cats, dogs, horses, and birds detected accurately
-- **Vehicle Detection**: Cars, buses, and trains identified with class labels and confidence
-- **Household Items**: Sofas, dining tables, monitors detected in indoor scenes
-- **Street Scenes**: Complex scenes with multiple objects detected simultaneously
+Comprehensive detection results demonstrating YOLOv5's capability on Pascal VOC 2012 dataset with 10 diverse test images:
 
-Each detection includes:
-- **Color-coded bounding box**: Different colors for different object classes
-- **Class label**: Name of the detected object
-- **Confidence score**: Probability of detection accuracy (0.0-1.0)
+**Top Row (5 images):**
+1. **Motorbikes Detection** (2008_002370.jpg)
+   - Green bounding boxes for motorbike
+   - Confidence score: 0.61 and 0.69
+   - Accurate localization of vehicle parts
+
+2. **Person & Sofa Detection** (2011_001066.jpg)
+   - Sofa detected with pink/magenta box (0.32 confidence)
+   - Person detected with confidence score
+
+3. **Person with Headphones** (2011_002679.jpg)
+   - Red bounding box with high confidence (0.82)
+   - Clean detection of person against solid background
+
+4. **Horses Detection** (2009_001636.jpg)
+   - Cyan/blue boxes for horse detection
+   - Multiple confidence scores: 0.47, 0.58, 0.69
+   - Animal detection in natural outdoor setting
+
+5. **Complex Scene - Person & Monitor** (2009_003577.jpg)
+   - Multiple objects detected: person (0.78), monitor (0.76)
+   - Green and cyan colored boxes
+   - Demonstrates multi-object detection capability
+
+**Bottom Row (5 images):**
+6. **Sofa Detection** (2011_003039.jpg)
+   - Pink/magenta box with 0.92 confidence
+   - Excellent detection in indoor scene
+
+7. **Indoor Scene - Multiple Objects** (2008_001781.jpg)
+   - Potted plant detected (0.53, 0.68)
+   - Sofa (0.34) and TV monitor (0.87)
+   - Shows multi-class detection in complex indoor environments
+   - Purple, pink, and cyan bounding boxes
+
+8. **Street Scene** (2011_005473.jpg)
+   - Person detection in crowded street scene
+   - Demonstrates detection in complex real-world scenarios
+   - Gray bounding box with appropriate confidence
+
+9. **Bird Detection** (2011_001259.jpg)
+   - Bird detected with cyan box and 0.88 confidence
+   - Accurate detection of small objects in natural scene
+
+10. **Bicycle Detection** (2008_005727.jpg)
+    - Bicycle detected with cyan box (0.91 confidence)
+    - Clean detection of vehicle in organized background
+
+**Detection Characteristics:**
+- Color-coded bounding boxes for different object classes
+- Confidence scores displayed above each detection (0.0-1.0 range)
+- Accurate localization across diverse objects and scenes
+- Demonstrates YOLOv5's versatility across 20 Pascal VOC classes
 
 ### Additional Performance Visualizations
 
